@@ -10,7 +10,10 @@ class LocationSearchTable : UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let selectedItem = matchingItems[indexPath.row].placemark
                 //triplength 0 is a placeholder :(
-                let place = Places(searchItem: selectedItem.name!, tripLength: 0)
+                let place = Places(searchItem: selectedItem.name!,
+                                   tripLength: 0,
+                                   leaveDate: Date(),
+                                   returnDate: Date())
                 print(place)
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailPlaces = place

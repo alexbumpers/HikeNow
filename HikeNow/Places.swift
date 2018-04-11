@@ -12,6 +12,8 @@ import MapKit
 struct Places: Codable {
     var searchItem: String
     var tripLength: Int
+    var leaveDate: Date
+    var returnDate: Date
     
 //    init(searchItem: String, tripLength: Int) {
 //        self.searchItem = searchItem

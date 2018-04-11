@@ -14,6 +14,7 @@ class MyTripsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         if let savedPlaces = Places.loadFromFile() {
             places = savedPlaces
         } else {
@@ -65,17 +66,15 @@ class MyTripsTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
+
+     //Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            places.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        Places.saveToFile(places: places)
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -101,6 +100,14 @@ class MyTripsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+        tableView.setEditing(!tableViewEditingMode, animated: true) // toggles in & out of edit mode
+        
+        
+    }
     
     @IBAction func unwindFromDetail(unwindSegue: UIStoryboardSegue) {
         
