@@ -1,6 +1,6 @@
 //
 //  Places.swift
-//  mapSearch2
+// HikeNow
 //
 //  Created by Alex Bumpers on 4/9/18.
 //  Copyright © 2018 Alex Bumpers. All rights reserved.
@@ -8,7 +8,6 @@
 
 import Foundation
 import MapKit
-
 
 struct Places: Codable {
     var searchItem: String
@@ -19,8 +18,10 @@ struct Places: Codable {
 //        self.tripLength = tripLength
 //    }
     
-    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let archiveURL = documentsDirectory.appendingPathComponent("places").appendingPathExtension("plist")
+    static let documentsDirectory =
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL =
+        documentsDirectory.appendingPathComponent("places").appendingPathExtension("plist")
     
     static func loadFromFile() -> [Places]? {
         guard let codedPlaces = try? Data(contentsOf: archiveURL) else {return nil}

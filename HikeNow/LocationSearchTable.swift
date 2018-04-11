@@ -9,11 +9,10 @@ class LocationSearchTable : UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let selectedItem = matchingItems[indexPath.row].placemark
-                //triplength 3 is a placeholder :(
+                //triplength 0 is a placeholder :(
                 let place = Places(searchItem: selectedItem.name!, tripLength: 0)
                 print(place)
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                // sets to "hi"
                 controller.detailPlaces = place
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -21,7 +20,6 @@ class LocationSearchTable : UITableViewController {
         }
     }
 }
-
 
 extension LocationSearchTable : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
@@ -40,7 +38,6 @@ extension LocationSearchTable : UISearchResultsUpdating {
         }
     }
 }
-        
 
 extension LocationSearchTable {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +51,4 @@ extension LocationSearchTable {
         cell.detailTextLabel?.text = ""
         return cell
     }
-    
-
 }

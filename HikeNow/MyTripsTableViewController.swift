@@ -1,6 +1,6 @@
 //
 //  MyTripsTableViewController.swift
-//  mapSearch2
+//  HikeNow
 //
 //  Created by Alex Bumpers on 4/10/18.
 //  Copyright © 2018 Alex Bumpers. All rights reserved.
@@ -19,6 +19,7 @@ class MyTripsTableViewController: UITableViewController {
         } else {
             places = Places.loadSamplePlaces()
         }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -32,29 +33,24 @@ class MyTripsTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return places.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyTripsCell", for: indexPath)
-        let place = places[indexPath.row] // should pull from indexPath.row, currently no subscript available
+        let place = places[indexPath.row]
         
         cell.textLabel?.text = place.searchItem
-        print(place.searchItem)
-        //cell.textLabel?.text = String(place.searchItem)
         cell.detailTextLabel?.text = String(place.tripLength)
         
         return cell
@@ -115,5 +111,4 @@ class MyTripsTableViewController: UITableViewController {
         places.append(place)
         tableView.reloadData()
     }
-
 }

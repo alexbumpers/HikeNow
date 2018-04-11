@@ -1,6 +1,6 @@
 //
 //  DetailViewController.swift
-//  mapSearch2
+//  HikeNow
 //
 //  Created by Alex Bumpers on 4/9/18.
 //  Copyright © 2018 Alex Bumpers. All rights reserved.
@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 class DetailViewController: UIViewController {
     @IBOutlet weak var detailDescriptionLabel: UILabel!
     @IBOutlet weak var tripLengthStepper: UIStepper!
@@ -15,19 +16,11 @@ class DetailViewController: UIViewController {
     
     var place: Places? {
         let tripLength = Int(tripLengthStepper.value)
-        //let descriptionLabel = detailPlaces?.searchItem.
         let descriptionLabel = detailDescriptionLabel.text ?? ""
-//        let email = emailTextField.text ?? ""
-//        let checkInDate = checkInDatePicker.date
-//        let checkOutDate = checkOutDatePicker.date
-//        let numberOfAdults = Int(numberOfAdultsStepper.value)
-//        let numberOfChildren = Int(numberOfChildrenStepper.value)
-//        let hasWifi = wifiSwitch.isOn
         
         return Places(searchItem: descriptionLabel,
                       tripLength: tripLength)
     }
-    
     
     var detailPlaces: Places? {
         didSet {
@@ -35,7 +28,6 @@ class DetailViewController: UIViewController {
         }
     }
 
-    
     @objc func changeLabelText() {
         tripLengthLabel.text = "\(Int(tripLengthStepper.value))"
     }
@@ -54,9 +46,6 @@ class DetailViewController: UIViewController {
             }
         }
     }
-
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

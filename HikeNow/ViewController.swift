@@ -25,8 +25,6 @@ class ViewController : UIViewController {
         locationSearchTable.mapView = mapView
         
     }
-    
-    
 }
 
 extension ViewController : CLLocationManagerDelegate {
