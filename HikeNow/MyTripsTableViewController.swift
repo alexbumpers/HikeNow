@@ -110,5 +110,9 @@ class MyTripsTableViewController: UITableViewController {
         
         places.append(place)
         tableView.reloadData()
+        
+        Places.saveToFile(places: places)
     }
+    
+    
 }
