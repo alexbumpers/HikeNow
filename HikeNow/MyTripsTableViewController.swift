@@ -52,7 +52,14 @@ class MyTripsTableViewController: UITableViewController {
         let place = places[indexPath.row]
         
         cell.textLabel?.text = place.searchItem
-        cell.detailTextLabel?.text = String(place.tripLength)
+        
+        if place.tripLength == 1 {
+            cell.detailTextLabel?.text = String(place.tripLength) + " additional hiker attending"
+        } else if place.tripLength == 0 {
+            cell.detailTextLabel?.text = "No one else is attending your hike"
+        } else {
+            cell.detailTextLabel?.text = String(place.tripLength) + " additional hikers attending"
+        }
         
         return cell
     }
